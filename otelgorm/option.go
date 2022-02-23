@@ -35,3 +35,10 @@ func WithQueryVariables() Option {
 		p.includeQueryVars = true
 	}
 }
+
+// WithExcludeMetrics prevents DBStats metrics from being reported.
+func WithExcludeMetrics() Option {
+	return func(p *otelPlugin) {
+		p.excludeMetrics = true
+	}
+}
