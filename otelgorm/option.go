@@ -28,3 +28,10 @@ func WithDBName(name string) Option {
 		p.attrs = append(p.attrs, semconv.DBNameKey.String(name))
 	}
 }
+
+// WithQueryVariables configures the db.statement attribute to include query variables
+func WithQueryVariables() Option {
+	return func(p *otelPlugin) {
+		p.includeQueryVars = true
+	}
+}
